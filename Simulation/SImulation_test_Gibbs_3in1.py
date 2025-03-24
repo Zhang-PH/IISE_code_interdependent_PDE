@@ -32,18 +32,18 @@ T_f_3 = np.load('input_pre/T_f_TV_3.npy')
 B_psi = np.load('input_pre/B_psi.npy')
 
 # IntTVP
-beta1_hat = np.load('output_3in1_simulation_2/beta1_burn.npy')[-1]
-beta2_hat = np.load('output_3in1_simulation_2/beta2_burn.npy')[-1]
-beta3_hat = np.load('output_3in1_simulation_2/beta3_burn.npy')[-1]
-psi_11_hat = np.load('output_3in1_simulation_2/psi_11_burn.npy')[-1]
-psi_12_hat = np.load('output_3in1_simulation_2/psi_12_burn.npy')[-1]
-psi_13_hat = np.load('output_3in1_simulation_2/psi_13_burn.npy')[-1]
-psi_21_hat = np.load('output_3in1_simulation_2/psi_21_burn.npy')[-1]
-psi_22_hat = np.load('output_3in1_simulation_2/psi_22_burn.npy')[-1]
-psi_23_hat = np.load('output_3in1_simulation_2/psi_23_burn.npy')[-1]
-psi_31_hat = np.load('output_3in1_simulation_2/psi_31_burn.npy')[-1]
-psi_32_hat = np.load('output_3in1_simulation_2/psi_32_burn.npy')[-1]
-psi_33_hat = np.load('output_3in1_simulation_2/psi_33_burn.npy')[-1]
+beta1_hat = np.load('output_3in1_simulation/beta1_burn.npy')[-1]
+beta2_hat = np.load('output_3in1_simulation/beta2_burn.npy')[-1]
+beta3_hat = np.load('output_3in1_simulation/beta3_burn.npy')[-1]
+psi_11_hat = np.load('output_3in1_simulation/psi_11_burn.npy')[-1]
+psi_12_hat = np.load('output_3in1_simulation/psi_12_burn.npy')[-1]
+psi_13_hat = np.load('output_3in1_simulation/psi_13_burn.npy')[-1]
+psi_21_hat = np.load('output_3in1_simulation/psi_21_burn.npy')[-1]
+psi_22_hat = np.load('output_3in1_simulation/psi_22_burn.npy')[-1]
+psi_23_hat = np.load('output_3in1_simulation/psi_23_burn.npy')[-1]
+psi_31_hat = np.load('output_3in1_simulation/psi_31_burn.npy')[-1]
+psi_32_hat = np.load('output_3in1_simulation/psi_32_burn.npy')[-1]
+psi_33_hat = np.load('output_3in1_simulation/psi_33_burn.npy')[-1]
 
 
 def psi_mat(t_cur, B_psi):
