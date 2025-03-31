@@ -344,7 +344,7 @@ class Bspline:
         self.fitted['b'] = b
         self.fitted['Y_hat'] = Y_hat
         self.fitted['mse'] = np.mean((Y - Y_hat) ** 2)
-        plt.plot(Y - Y_hat)
+        # plt.plot(Y - Y_hat)
         print('统计模型误差最大值：', np.max(Y - Y_hat))
         print('统计模型误差最小值：', np.min(Y - Y_hat))
         self.fitted['b_var_hat'] = np.linalg.inv(B.T @ B) * mse
@@ -582,10 +582,10 @@ theta_31 = theta31_bs.predict(t_pre)
 theta_32 = theta32_bs.predict(t_pre)
 theta_33 = theta33_bs.predict(t_pre)
 
-plt.plot(theta_11[:], label=r'$\psi_{11}$')
-plt.plot(theta_12[:], label=r'$\psi_{12}$')
-plt.plot(theta_13[:], label=r'$\psi_{13}$')
-plt.legend()
+# plt.plot(theta_11[:], label=r'$\psi_{11}$')
+# plt.plot(theta_12[:], label=r'$\psi_{12}$')
+# plt.plot(theta_13[:], label=r'$\psi_{13}$')
+# plt.legend()
 
 for j in range(m): # boundary condition 0
     U1[0, j] = f_1(j*delta_t)
@@ -753,6 +753,7 @@ ax3d2.yaxis.set_pane_color((1.0, 1.0, 1.0, 1.0))
 ax3d2.zaxis.set_pane_color((1.0, 1.0, 1.0, 1.0))
 plt.title('PDE 3')
 plt.savefig('pic/3D PDE', dpi=1200)
+plt.show()
 
 
 Y_origin1 = copy.deepcopy(U1) # finite difference original data
@@ -842,54 +843,54 @@ H32 = BS_model_3.fitted['P2']
 fst_deri1 = (T_f_1@beta_1).reshape(xp, tp)
 fst_deri2 = (T_f_2@beta_2).reshape(xp, tp)
 fst_deri3 = (T_f_3@beta_3).reshape(xp, tp)
-for i in range(xp):
-    plt.plot(fst_deri1[i])
-    plt.title('First derivatives of t1')
-plt.show()
-for i in range(xp):
-    plt.plot(fst_deri2[i])
-    plt.title('First derivatives of t2')
-plt.show()
-for i in range(xp):
-    plt.plot(fst_deri3[i])
-    plt.title('First derivatives of t3')
-plt.show()
+# for i in range(xp):
+#     plt.plot(fst_deri1[i])
+#     plt.title('First derivatives of t1')
+# plt.show()
+# for i in range(xp):
+#     plt.plot(fst_deri2[i])
+#     plt.title('First derivatives of t2')
+# plt.show()
+# for i in range(xp):
+#     plt.plot(fst_deri3[i])
+#     plt.title('First derivatives of t3')
+# plt.show()
 
 # 1st derivative of x
 fsz_deri1 = (X_f_1 @ beta_1).reshape(xp, tp)
 fsz_deri2 = (X_f_2 @ beta_2).reshape(xp, tp)
 fsz_deri3 = (X_f_3 @ beta_3).reshape(xp, tp)
 
-for i in range(tp):
-    plt.plot(fsz_deri1[:, i])
-    plt.title('First derivatives of x')
-plt.show()
-for i in range(tp):
-    plt.plot(fsz_deri2[:, i])
-    plt.title('First derivatives of x')
-plt.show()
-for i in range(tp):
-    plt.plot(fsz_deri3[:, i])
-    plt.title('First derivatives of x')
-plt.show()
+# for i in range(tp):
+#     plt.plot(fsz_deri1[:, i])
+#     plt.title('First derivatives of x')
+# plt.show()
+# for i in range(tp):
+#     plt.plot(fsz_deri2[:, i])
+#     plt.title('First derivatives of x')
+# plt.show()
+# for i in range(tp):
+#     plt.plot(fsz_deri3[:, i])
+#     plt.title('First derivatives of x')
+# plt.show()
 
 # 2nd derivative of x
 scdz_deri1 = (X_d_1 @ beta_1).reshape(xp, tp)
 scdz_deri2 = (X_d_2 @ beta_2).reshape(xp, tp)
 scdz_deri3 = (X_d_3 @ beta_3).reshape(xp, tp)
 
-for i in range(tp):
-    plt.plot(scdz_deri1[:,i])
-    plt.title('Second derivatives of x1')
-plt.show()
-for i in range(tp):
-    plt.plot(scdz_deri2[:,i])
-    plt.title('Second derivatives of x2')
-plt.show()
-for i in range(tp):
-    plt.plot(scdz_deri3[:,i])
-    plt.title('Second derivatives of x3')
-plt.show()  
+# for i in range(tp):
+#     plt.plot(scdz_deri1[:,i])
+#     plt.title('Second derivatives of x1')
+# plt.show()
+# for i in range(tp):
+#     plt.plot(scdz_deri2[:,i])
+#     plt.title('Second derivatives of x2')
+# plt.show()
+# for i in range(tp):
+#     plt.plot(scdz_deri3[:,i])
+#     plt.title('Second derivatives of x3')
+# plt.show()
 
 t11_ev0 = theta_11[::rhot]
 t12_ev0 = theta_12[::rhot]
@@ -1012,46 +1013,46 @@ for l in range(nt):
         pre_res3[i, l] = pre_3[nt * i + l]
 
 Xv, Yv = np.meshgrid(xn, tn)
+#
+# figv1 = plt.figure()
+# axv1 = figv1.add_subplot(projection="3d")
+# axv1.set_xlabel("Z")
+# axv1.set_ylabel("T")
+# axv1.set_zlabel("Simulation")
+# axv1.plot_surface(Xv, Yv, pre_res1.T, cmap="cool", linewidths=0.1)#
+# # axv1.plot_surface(Xv, Yv, pre_res1.T-OBS_Y1[rhox:(n-rhox):rhox2,::rhot2].T, cmap="cool", linewidths=0.1)#
+#
+# figv2 = plt.figure()
+# axv2 = figv2.add_subplot(projection="3d")
+# axv2.set_xlabel("Z")
+# axv2.set_ylabel("T")
+# axv2.set_zlabel("Simulation")
+# # axv2.plot_surface(Xv, Yv, pre_res2, cmap="cool", linewidths=0.1)#
+# axv2.plot_surface(Xv, Yv, OBS_Y2[rhox:(n-rhox):rhox2,::rhot2].T, cmap="cool", linewidths=0.1)#
+#
+# figv3 = plt.figure()
+# axv3 = figv3.add_subplot(projection="3d")
+# axv3.set_xlabel("Z")
+# axv3.set_ylabel("T")
+# axv3.set_zlabel("Simulation")
+# # axv3.plot_surface(Xv, Yv, pre_res3, cmap="cool", linewidths=0.1)#
+# axv3.plot_surface(Xv, Yv, pre_res3.T-OBS_Y3[rhox:(n-rhox):rhox2,::rhot2].T, cmap="cool", linewidths=0.1)#
 
-figv1 = plt.figure()
-axv1 = figv1.add_subplot(projection="3d")
-axv1.set_xlabel("Z")
-axv1.set_ylabel("T")
-axv1.set_zlabel("Simulation")
-axv1.plot_surface(Xv, Yv, pre_res1.T, cmap="cool", linewidths=0.1)# 
-# axv1.plot_surface(Xv, Yv, pre_res1.T-OBS_Y1[rhox:(n-rhox):rhox2,::rhot2].T, cmap="cool", linewidths=0.1)# 
+# plt.show()
 
-figv2 = plt.figure()
-axv2 = figv2.add_subplot(projection="3d")
-axv2.set_xlabel("Z")
-axv2.set_ylabel("T")
-axv2.set_zlabel("Simulation")
-# axv2.plot_surface(Xv, Yv, pre_res2, cmap="cool", linewidths=0.1)# 
-axv2.plot_surface(Xv, Yv, OBS_Y2[rhox:(n-rhox):rhox2,::rhot2].T, cmap="cool", linewidths=0.1)# 
-
-figv3 = plt.figure()
-axv3 = figv3.add_subplot(projection="3d")
-axv3.set_xlabel("Z")
-axv3.set_ylabel("T")
-axv3.set_zlabel("Simulation")
-# axv3.plot_surface(Xv, Yv, pre_res3, cmap="cool", linewidths=0.1)# 
-axv3.plot_surface(Xv, Yv, pre_res3.T-OBS_Y3[rhox:(n-rhox):rhox2,::rhot2].T, cmap="cool", linewidths=0.1)# 
-
-plt.show()
-
-plt.plot((pre_res1.T-OBS_Y1.T[::rhot2,rhox:(n-rhox):rhox2]))
-plt.show()
+# plt.plot((pre_res1.T-OBS_Y1.T[::rhot2,rhox:(n-rhox):rhox2]))
+# plt.show()
 
 print(np.max(pre_res1.T-OBS_Y1.T[::rhot2,rhox:(n-rhox):rhox2]))
 print(np.min(pre_res1.T-OBS_Y1.T[::rhot2,rhox:(n-rhox):rhox2]))
 
-plt.plot((pre_res2.T-OBS_Y2.T[::rhot2,rhox:(n-rhox):rhox2]))
-plt.show()
+# plt.plot((pre_res2.T-OBS_Y2.T[::rhot2,rhox:(n-rhox):rhox2]))
+# plt.show()
 print(np.max(pre_res2.T-OBS_Y2.T[::rhot2,rhox:(n-rhox):rhox2]))
 print(np.min(pre_res2.T-OBS_Y2.T[::rhot2,rhox:(n-rhox):rhox2]))
 
-plt.plot((pre_res3.T-OBS_Y3.T[::rhot2,rhox:(n-rhox):rhox2]))
-plt.show()
+# plt.plot((pre_res3.T-OBS_Y3.T[::rhot2,rhox:(n-rhox):rhox2]))
+# plt.show()
 print(np.max(pre_res3.T-OBS_Y3.T[::rhot2,rhox:(n-rhox):rhox2]))
 print(np.min(pre_res3.T-OBS_Y3.T[::rhot2,rhox:(n-rhox):rhox2]))
 
@@ -1169,29 +1170,29 @@ for l in range(nt):
         
 Xv, Yv = np.meshgrid(xn, tn)
 
-figv1 = plt.figure()
-axv1 = figv1.add_subplot(projection="3d")
-axv1.set_xlabel("Z")
-axv1.set_ylabel("T")
-axv1.set_zlabel("Simulation")
-axv1.plot_surface(Xv, Yv, pre_res1.T, cmap="cool", linewidths=0.1)  #
-axv1.set_title('PDE 1')
-
-figv2 = plt.figure()
-axv2 = figv2.add_subplot(projection="3d")
-axv2.set_xlabel("Z")
-axv2.set_ylabel("T")
-axv2.set_zlabel("Simulation")
-axv2.plot_surface(Xv, Yv, OBS_Y2[rhox:(n - rhox):rhox2, ::rhot2].T, cmap="cool", linewidths=0.1)  #
-
-figv3 = plt.figure()
-axv3 = figv3.add_subplot(projection="3d")
-axv3.set_xlabel("Z")
-axv3.set_ylabel("T")
-axv3.set_zlabel("Simulation")
-axv3.plot_surface(Xv, Yv, pre_res3.T - OBS_Y3[rhox:(n - rhox):rhox2, ::rhot2].T, cmap="cool", linewidths=0.1)  #
-
-plt.show()
+# figv1 = plt.figure()
+# axv1 = figv1.add_subplot(projection="3d")
+# axv1.set_xlabel("Z")
+# axv1.set_ylabel("T")
+# axv1.set_zlabel("Simulation")
+# axv1.plot_surface(Xv, Yv, pre_res1.T, cmap="cool", linewidths=0.1)  #
+# axv1.set_title('PDE 1')
+#
+# figv2 = plt.figure()
+# axv2 = figv2.add_subplot(projection="3d")
+# axv2.set_xlabel("Z")
+# axv2.set_ylabel("T")
+# axv2.set_zlabel("Simulation")
+# axv2.plot_surface(Xv, Yv, OBS_Y2[rhox:(n - rhox):rhox2, ::rhot2].T, cmap="cool", linewidths=0.1)  #
+#
+# figv3 = plt.figure()
+# axv3 = figv3.add_subplot(projection="3d")
+# axv3.set_xlabel("Z")
+# axv3.set_ylabel("T")
+# axv3.set_zlabel("Simulation")
+# axv3.plot_surface(Xv, Yv, pre_res3.T - OBS_Y3[rhox:(n - rhox):rhox2, ::rhot2].T, cmap="cool", linewidths=0.1)  #
+#
+# plt.show()
 print(np.max(pre_res1.T - OBS_Y1.T[::rhot2, rhox:(n-rhox):rhox2]))
 print(np.min(pre_res1.T - OBS_Y1.T[::rhot2, rhox:(n-rhox):rhox2]))
 

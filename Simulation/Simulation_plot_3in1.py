@@ -5,7 +5,7 @@ from scipy.stats import invgamma, gamma, norm, multivariate_normal
 import copy
 from time import perf_counter
 
-B_psi = np.load('input_penalty_cut/B_psi.npy')
+B_psi = np.load('input_simulation/B_psi.npy')
 shape_psi = 5
 
 # settings of Trace plot
